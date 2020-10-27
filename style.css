@@ -24,14 +24,12 @@ a:link, a:visited {
 	padding: 3px;
 	text-decoration: none;
 	color: #FF99EE;
-	font-family: sans-serif;
 	font-size: 0.9em; 
 }
 a:hover { 
 	background-color: white;
 	color: #A67792;
 	text-decoration: underline #A67792;
-	font-family: cursive;
 }
 nav ul { 
 	list-style-type: none; 
@@ -40,7 +38,6 @@ nav ul {
 }
 body {
     background-color: #dedfe0;
-    text-align: center;
 }
 nav {
 	text-align: center; 
@@ -53,10 +50,9 @@ table {
 	background-color: white;
 }
 button, input {
-	font-family: sans-serif;
 	font-size: 0.9em;
 	border-radius: 8px;
 }
 img {
-	border-radius: 20px;
+	border-radius: 15px;
 }

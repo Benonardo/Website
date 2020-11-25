@@ -1,14 +1,18 @@
-<!DOCTYPE HTML>
-
+<!DOCTYPE html>
 <html>
-    <head>   
-        <title>Farbe ist fake</title>
-        <link rel="stylesheet" type="text/css" href="style.css" />
-        <link rel="shortcut icon" type="image/x-icon" href="https://cdn.discordapp.com/emojis/746734698641752074.png" />
-        <meta name="description" content="Farbe ist und bleibt fake" />
-    </head>
-    <body>
-        <h1>Farbe ist fake :P</h1>
-        <img src="https://cdn.discordapp.com/emojis/746734698641752074.png" alt="Farbe ist fake" width="350" height="350">
-    </body>
+<head>
+<title>Farbe</title>
+<link rel="stylesheet" type="text/css" href="stylefarbe.css">
+</head>
+<body>
+    <script type="text/javascript">
+        document.addEventListener('mousemove', function(e){
+            const body = document.querySelector('body');
+            const bubbles = document.createElement('span');
+            bubbles.style.left = e.offsetX+'px';
+            bubbles.style.top = e.offsetY+'px';
+            body.appendChild(bubbles);
+        });
+    </script>
+</body>
 </html>

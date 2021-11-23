@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="de">
-    <head>
-        <title>Farbe</title>
-        <link rel="stylesheet" type="text/css" href="./css/stylefarbe.css">
-    </head>
-    <body>
-        <script type="text/javascript">
-            document.addEventListener('mousemove', function(e){
-                const body = document.querySelector('body');
-                const bubbles = document.createElement('span');
-                bubbles.style.left = e.offsetX+'px';
-                bubbles.style.top = e.offsetY+'px';
-                body.appendChild(bubbles);
-            });
-        </script>
-    </body>
+	<head>
+		<title>Farbe</title>
+		<link rel="stylesheet" type="text/css" href="./css/stylefarbe.css">
+	</head>
+	<body>
+		<script type="text/javascript">
+			document.addEventListener('mousemove', function(e){
+				const body = document.querySelector('body');
+				const bubbles = document.createElement('span');
+				bubbles.style.left = e.offsetX+'px';
+				bubbles.style.top = e.offsetY+'px';
+				body.appendChild(bubbles);
+			});
+		</script>
+	</body>
 </html>

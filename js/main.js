@@ -1,100 +1,38 @@
-/*
-	Spectral by HTML5 UP
-	html5up.net | @n33co
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
+function copyIP() {
+	var before = document.getElementById("ip").innerText;
+	var ip = document.getElementById("ip");
+	var range = document.createRange();
+	range.selectNode(ip);
+	window.getSelection().removeAllRanges();
+	window.getSelection().addRange(range);
+	document.execCommand("copy");
+	window.getSelection().removeAllRanges();
+	
+	ip.innerText = ip_copied;
+	setTimeout(
+	function() {
+		ip.innerText = before;
+	}, 900);
+}
 
-(function($) {
-
-	skel
-		.breakpoints({
-			xlarge:	'(max-width: 1680px)',
-			large:	'(max-width: 1280px)',
-			medium:	'(max-width: 980px)',
-			small:	'(max-width: 736px)',
-			xsmall:	'(max-width: 480px)'
-		});
-
-	$(function() {
-
-		var	$window = $(window),
-			$body = $('body'),
-			$wrapper = $('#page-wrapper'),
-			$banner = $('#banner'),
-			$header = $('#header');
-
-		// Disable animations/transitions until the page has loaded.
-			$body.addClass('is-loading');
-
-			$window.on('load', function() {
-				window.setTimeout(function() {
-					$body.removeClass('is-loading');
-				}, 100);
-			});
-
-		// Mobile?
-			if (skel.vars.mobile)
-				$body.addClass('is-mobile');
-			else
-				skel
-					.on('-medium !medium', function() {
-						$body.removeClass('is-mobile');
-					})
-					.on('+medium', function() {
-						$body.addClass('is-mobile');
-					});
-
-		// Fix: Placeholder polyfill.
-			$('form').placeholder();
-
-		// Prioritize "important" elements on medium.
-			skel.on('+medium -medium', function() {
-				$.prioritize(
-					'.important\\28 medium\\29',
-					skel.breakpoint('medium').active
-				);
-			});
-
-		// Scrolly.
-			$('.scrolly')
-				.scrolly({
-					speed: 1000,
-					offset: $header.outerHeight()
-				});
-
-		// Menu.
-			$('#menu')
-				.append('<a href="#menu" class="close"></a>')
-				.appendTo($body)
-				.panel({
-					delay: 500,
-					hideOnClick: true,
-					hideOnSwipe: true,
-					resetScroll: true,
-					resetForms: true,
-					side: 'right',
-					target: $body,
-					visibleClass: 'is-menu-visible'
-				});
-
-		// Header.
-			if (skel.vars.IEVersion < 9)
-				$header.removeClass('alt');
-
-			if ($banner.length > 0
-			&&	$header.hasClass('alt')) {
-
-				$window.on('resize', function() { $window.trigger('scroll'); });
-
-				$banner.scrollex({
-					bottom:		$header.outerHeight() + 1,
-					terminate:	function() { $header.removeClass('alt'); },
-					enter:		function() { $header.addClass('alt'); },
-					leave:		function() { $header.removeClass('alt'); }
-				});
-
-			}
-
+window.onload = function() {
+	// MC API
+	const status_message = document.querySelector('.server-status')
+	const status_container = document.querySelector('.server-status-container')
+	MinecraftAPI.getServerStatus(server_ip, {
+		port: server_port
+	}, function (err, status) {
+		if (err) {
+			status_container.innerHTML = "Status von <span class='info'>" + server_ip + "</span> kann nicht abgefragt werden<br><span class='info' style='color: #ff4545; font-size: .5em;'>" + err
+		} else if (status.online == false) {
+			// If status.last_online returns "undefined". That means the API hasn't accessed your server yet so it doesn't know when it was last online
+			status_container.innerHTML = "Server ist <span class='info' style='color:#ff4545'>offline</span>. Letzte Überprüfung " + (status.last_online / 60)
+		} else {
+			status_message.innerText = status.players.now;
+		}
 	});
+}
 
-})(jQuery);
+$(document).ready(function() {
+	$.firefly({images: ['img/firefly.jpg'], total: firefly_count});
+});

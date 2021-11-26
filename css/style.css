@@ -176,10 +176,13 @@ hr {
 	font-family: 'Poppins', sans-serif;
 	color: #525252;
 }
+.staff-card h4 {
+	font-size: 17px;
+}
 @media (max-width: 1200px) {
-  .staff-card {
-	  width: 11em;
-  }
+  	.staff-card {
+		width: 11em;
+  	}
 }
 
 .grid {

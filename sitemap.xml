@@ -8,12 +8,12 @@
 <url>
   	<loc>https://vanillaminigames.eu/</loc>
   	<lastmod>2021-11-23T11:01:54+00:00</lastmod>
-  	<priority>1.00</priority>
+  	<priority>1.0</priority>
 </url>
 <url>
   	<loc>https://vanillaminigames.eu/partner</loc>
   	<lastmod>2021-11-23T11:01:54+00:00</lastmod>
-  	<priority>0.80</priority>
+  	<priority>0.6</priority>
 </url>
 
 </urlset>

@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /farbe.html
+
+Sitemap: https://vanillaminigames.eu/sitemap.xml
